@@ -77,4 +77,14 @@ static ssize_t default_store(struct kobject *kobj, struct attribute *attr,
 	return len;
 }
 
+static struct sysfs_ops calc_ops = {
+	.show = default_show,
+	.store = default_store,
+};
+
+static struct kobj_type calc_type = {
+	.sysfs_ops = &calc_ops,
+	.default_attrs = calc_attributes,
+};
+
 
