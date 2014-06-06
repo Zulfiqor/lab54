@@ -118,6 +118,3 @@ module_exit(sysfsexample_module_exit);
 MODULE_LICENSE("GPL");
 
 
-
-
-
