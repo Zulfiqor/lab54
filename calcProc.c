@@ -114,33 +114,6 @@ int init_module()
 	}
 	arg2->write_proc = write_arg2;
 
-	// operation
-	operation = create_proc_entry(OPERATION, 0666, calc_dir);
-	if (!operation) {
-		printk(KERN_INFO "Error creating proc entry");
-		return -ENOMEM;
-	}
-	operation->write_proc = write_operation;
-
-	// result
-	result = create_proc_entry(RESULT, 0666, calc_dir);
-	if (!result) {
-		printk(KERN_INFO "Error creating proc entry");
-		return -ENOMEM;
-	}
-	result->read_proc = read_result;
-
-	printk(KERN_INFO "/proc/%s created\n", PARENT_DIR);
-	return 0;
 }
 
-void cleanup_module()
-{
-	remove_proc_entry(ARG1, NULL);
-	remove_proc_entry(ARG2, NULL);
-	remove_proc_entry(OPERATION, NULL);
-	remove_proc_entry(RESULT, NULL);
-	printk(KERN_INFO "/proc/%s removed\n", PARENT_DIR);
-}
-
-
+	
